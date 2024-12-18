@@ -39,6 +39,13 @@
                         <!-- Heading (Login) -->
                         <h1 class="mb-5 text-center">Login</h1>
 
+                        <% if(msg.length > 0){  %>
+                            <div class="alert alert-success">  
+                           <!-- to print -->
+                           <%= msg %>
+                       </div>
+                      <% } %>
+
                         <!-- Email -->
                         <div class="row mb-3">
                             <div class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
