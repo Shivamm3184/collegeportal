@@ -12,5 +12,3 @@ route.get('/register',FrontController.register)
 // insert data
 route.post('/userinsert',FrontController.userinsert)
 
-
-module.exports = route
