@@ -23,7 +23,7 @@ class FrontController {
             const bca = await CourseModel.findOne({ user_id: id, course: "bca" })
             const mca = await CourseModel.findOne({ user_id: id, course: "mca" })
             // console.log(bca)
-            res.render("home", { n: name, i: image, e: email, bca: bca, btech: btech, mca: mca })
+            res.render("home", { n: name, i: image, e: email, bca: bca, btech: btech, mca: mca, msg:req.flash("error") })
         } catch (error) {
             console.log(error)
         }
@@ -105,15 +105,68 @@ class FrontController {
                     url: imageupload.secure_url
                 }
             });
-            req.flash("success", "Register Succesfully ! Please login here");
-            res.redirect("/"); //route ~~ web
+            if (data) {
 
-
-
+                this.sendVerifymail(name, email, data.id)
+                req.flash('error', 'Your Register Success, Plz verify mail')
+                res.redirect('/register')
+            } else {
+                req.flash('error', 'not found')
+                req.redirect('/register')
+            }
         } catch (error) {
             console.log(error)
         }
     }
+    //email verification 
+    static sendVerifymail = async (name, email, user_id) => {
+        //console.log(name, email, user_id);
+        // connenct with the smtp server
+    
+        let transporter = await nodemailer.createTransport({
+          host: "smtp.gmail.com",
+          port: 587,
+    
+          auth: {
+            user: "shivammishrakiddys@gmail.com",
+            pass: "olfx swfh chmc ngwz",
+          },
+        });
+        let info = await transporter.sendMail({
+          from: "test@gmail.com", // sender address
+          to: email, // list of receivers
+          subject: "For Verification mail", // Subject line
+          text: "heelo", // plain text body
+          html: "<p>Hii " +
+            name +
+            ',Please click here to <a href="http://localhost:3000/register/verify?id=' +
+            user_id +
+            '">Verify</a>Your mail</p>.',
+    
+        });
+        //console.log(info);
+    };
+    static verifyMail = async (req, res) => {
+        try {
+            //console.log(req.query.id)
+            const updateinfo = await UserModel.findByIdAndUpdate(req.query.id, {
+                is_verify: 1,
+            });
+            // console.log(updateinfo)
+            if (updateinfo) {
+                let token = jwt.sign({ ID: updateinfo.id }, 'fsdfsdfsfdf334')
+                //console.log(token)middleware
+                res.cookie('token', token, {
+                    httpOnly: true,
+                    secure: true,
+                    maxAge: 3600000,
+                })
+                res.redirect("/home");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
     // verify login
     static verifyLogin = async (req, res) => {
         try {
@@ -130,17 +183,20 @@ class FrontController {
                 // console.log(isMatch)
                 if (isMatch) {
                     //token
-                    if (user.role == 'admin') {
+                    if (user.role == 'admin' && user.is_verify==1 ) {
                         const token = jwt.sign({ ID: user.id }, 'fsdfsdfsfdf334');
                         // console.log(token)
                         res.cookie('token', token)
                         return res.redirect("/admin/dashboard")
-                    }
-                    if (user.role == 'student') {
+                    }else if (user.role == 'student'  && user.is_verify==1 ) {
                         const token = jwt.sign({ ID: user.id }, 'fsdfsdfsfdf334');
                         // console.log(token)
                         res.cookie('token', token)
                         return res.redirect("/home")
+                    }else{
+                        req.flash("error", "Please verify your Email");
+                    return res.redirect("/")
+                        
                     }
 
                 } else {
@@ -297,33 +353,31 @@ class FrontController {
     };
     static reset_Password = async (req, res) => {
         try {
-          const token = req.query.token;
-          const tokenData = await UserModel.findOne({ token: token });
-          if (tokenData) {
-            res.render("reset-password", { user_id: tokenData._id });
-          } else {
-            res.render("404");
-          }
+            const token = req.query.token;
+            const tokenData = await UserModel.findOne({ token: token });
+            if (tokenData) {
+                res.render("reset-password", { user_id: tokenData._id });
+            } else {
+                res.render("404");
+            }
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
     };
     static reset_Password1 = async (req, res) => {
         try {
-          const { password, user_id } = req.body;
-          const newHashPassword = await bcrypt.hash(password, 10);
-          await UserModel.findByIdAndUpdate(user_id, {
-            password: newHashPassword,
-            token: "",
-          });
-          req.flash("success", "Reset Password Updated successfully ");
-          res.redirect("/");
+            const { password, user_id } = req.body;
+            const newHashPassword = await bcrypt.hash(password, 10);
+            await UserModel.findByIdAndUpdate(user_id, {
+                password: newHashPassword,
+                token: "",
+            });
+            req.flash("success", "Reset Password Updated successfully ");
+            res.redirect("/");
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
-      };
-
-
+    };
 
 }
 module.exports = FrontController

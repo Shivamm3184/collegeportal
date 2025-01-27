@@ -45,6 +45,10 @@ route.post("/forgot_Password",FrontController.forgetPasswordVerify)
 route.get('/reset-password',FrontController.reset_Password)
 route.post('/reset_Password1',FrontController.reset_Password1)
 
+//verify mail
+route.get('/register/verify',FrontController.verifyMail)
+
+
 
 
 
