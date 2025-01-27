@@ -16,6 +16,9 @@ const UserSchema = mongoose.Schema({
         type: String,
         default: "student"
     },
+    token:{
+        type:String
+    },
     image: {
         public_id: {
             type: String,
@@ -25,7 +28,7 @@ const UserSchema = mongoose.Schema({
             type: String,
             required: true
         },
-    },
+    }
 
 }, { timestamps: true })
 const UserModel = mongoose.model('user', UserSchema)

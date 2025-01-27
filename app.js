@@ -4,10 +4,19 @@ const port = 3000
 const web = require('./routes/web')
 const connectDb = require('./Database/connectDb')
 const fileupload = require('express-fileupload');
+const cookieParser = require('cookie-parser')
+
+// const bodyParser = require('body-parser'); // Optional with Express 4.16.0+
+
+// app.use(bodyParser.urlencoded({ extended: true })); // Parses URL-encoded data
+// app.use(express.json()); // Parses JSON data
+
 
 
 // image upload
 app.use(fileupload({ useTempFiles: true }))
+//token
+app.use(cookieParser())
 
 // view set ejs
 app.set('view engine', 'ejs')

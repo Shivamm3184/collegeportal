@@ -6,6 +6,12 @@
             <div class="py-5 text-center">
                 <h2 class="mt-5 pt-5">Know More</h2>
                 <p class="lead">We are available to assist you anytime.</p>
+                <% if(message.length > 0){  %>
+                    <div class="alert alert-info">  
+                   <!-- to print -->
+                   <%= message %>
+               </div>
+              <% } %>
             </div>
 
             <div class="row g-5">
@@ -21,31 +27,25 @@
 
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Contact Us!</h4>
-                    <form class="needs-validation" novalidate="">
+                    <form action="/contact"  method="post" >
                         <div class="row g-3 paddingValue">
-                            <div class="col-sm-6">
-                                <label for="firstName" class="form-label">First name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="" value=""
+                            
+                            <div class="col-10">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="" value=""
                                     required="">
                                 <div class="invalid-feedback">
                                     Valid first name is required.
                                 </div>
                             </div>
 
-                            <div class="col-sm-6">
-                                <label for="lastName" class="form-label">Last name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="" value=""
-                                    required="">
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
-                                </div>
-                            </div>
+                            
 
-                            <div class="col-12">
+                            <div class="col-10">
                                 <label for="username" class="form-label">Username</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">@</span>
-                                    <input type="text" class="form-control" id="username" placeholder="Username"
+                                    <input type="text" class="form-control" name="username" id="username" placeholder="Username"
                                         required="">
                                     <div class="invalid-feedback">
                                         Your username is required.
@@ -53,66 +53,67 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-10">
+                                <label for="phone" class="form-label">Phone <span
+                                        class="text-body-secondary">(Optional)</span></label>
+                                <input type="number" class="form-control" name="phone" id="phone" placeholder="">
+                                <div class="invalid-feedback">
+                                    Please enter a valid Phone .
+                                </div>
+                            </div>
+
+                            <div class="col-10">
                                 <label for="email" class="form-label">Email <span
                                         class="text-body-secondary">(Optional)</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
                                 <div class="invalid-feedback">
                                     Please enter a valid email address for shipping updates.
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-10">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="1234 Main St"
+                                <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St"
                                     required="">
                                 <div class="invalid-feedback">
                                     Please enter your shipping address.
                                 </div>
                             </div>
 
-                            <div class="col-12">
-                                <label for="address2" class="form-label">Address 2 <span
-                                        class="text-body-secondary">(Optional)</span></label>
-                                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                            </div>
-
-                            <div class="col-md-5">
-                                <label for="country" class="form-label">Country</label>
-                                <select class="form-select" id="country" required="">
-                                    <option value="">Choose...</option>
-                                    <option>United States</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid country.
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label for="state" class="form-label">State</label>
-                                <select class="form-select" id="state" required="">
-                                    <option value="">Choose...</option>
-                                    <option>California</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Please provide a valid state.
-                                </div>
-                            </div>
 
                         </div>
 
-                        <hr class="my-4">
+                        <hr class="my-4 col-10">
 
-                        <div class="form-check paddingValue">
-                            <input type="checkbox" class="form-check-input" id="save-info">
-                            <label class="form-check-label" for="save-info">Save this information for next time</label>
-                        </div>
+
+                        <button class="col-lg-2" type="submit">Submit</button>
 
                     </form>
+
+                    
                 </div>
             </div>
         </div>
     </section>
     <!-- End Contact Us -->
+    
+
 
     <%- include('./footer.ejs')   %>
+
+
+    <!-- <form  action="/contact" method="POST">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required><br><br>
+                
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required><br><br>
+                
+                        <label for="phone">Phone:</label>
+                        <input type="text" id="phone" name="phone" required><br><br>
+                
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required></textarea><br><br>
+                
+                        <button type="submit">Submit</button>
+                    </form> -->

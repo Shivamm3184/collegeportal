@@ -6,18 +6,7 @@ body{
     background: #f7f0bd !important;
 }
 
-::placeholder{
-    color: gray !important;
-    font-weight: lighter;
-}
 
-label{
-    padding-top: 10% !important;
-}
-
-button{
-    background: #2a1a6f !important;
-}
 
 /* ---------------------------------------------------------------
                             #navbar
@@ -45,6 +34,7 @@ button{
 
 .bglogin{
     background: #f7f0bd;
+    /* #bdddf7 */
 }
 
 /* ---------------------------------------------------------------

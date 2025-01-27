@@ -1,4 +1,4 @@
-  <%- include('./header.ejs')   %>
+<%- include('./header.ejs') %>
     <!-- carousel -->
     <section id="carousel">
         <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
@@ -92,7 +92,8 @@
                             <div class="card-body text-center">
                                 <h2>B.Tech</h2>
                                 <p class="card-text">B.Tech is a professional undergraduate engineering degree</p>
-                                <button type="button" class="btn btn-info">Register</button>
+                                <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                    data-bs-target="#btech" data>Register</button>
                             </div>
                         </div>
                     </div>
@@ -104,7 +105,8 @@
                             <div class="card-body text-center">
                                 <h2>BCA</h2>
                                 <p class="card-text">BCA is a three-year Bachelor's Degree in Computer Application</p>
-                                <button type="button" class="btn btn-info">Register</button>
+                                <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                    data-bs-target="#bca">Register</button>
                             </div>
                         </div>
                     </div>
@@ -117,7 +119,8 @@
                                 <h2>MCA</h2>
                                 <p class="card-text">MCA is a professional post-graduation degree in Computer
                                     Application</p>
-                                <button type="button" class="btn btn-info">Register</button>
+                                <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                    data-bs-target="#mca">Register</button>
                             </div>
                         </div>
                     </div>
@@ -128,6 +131,178 @@
     </section>
     <!-- End Courses -->
 
-    <%- include('./footer.ejs')   %>
+    <!--Btech Modal -->
+    <div class="modal fade" id="btech" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Course Register</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/course_insert" method="post">
+                        <div class="mb-3">
+                            <label for="">Name</label>
+                            <input type="text" value="<%= n %>" name="name" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Email</label>
+                            <input type="text" value="<%= e %>" name="email" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Phone no.</label>
+                            <input type="number" name="phone" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">DOB</label>
+                            <input type="date" name="dob" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Address</label>
+                            <textarea name="address" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Gender</label>
+                            <input type="radio" name="gender" value="male">Male
+                            <input type="radio" name="gender" value="female">Female
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Education</label>
+                            <select name="education" class="form-control form-select">
+                                <option value="">select education</option>
+                                <option value="10">10th</option>
+                                <option value="12">12th</option>
 
-    
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Course</label>
+                            <input type="text" value="btech" readonly class="form-control" name="course">
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--End Btech Modal -->
+
+    <!--BCA Modal -->
+    <div class="modal fade" id="bca" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Course Register</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/course_insert" method="post">
+                        <div class="mb-3">
+                            <label for="">Name</label>
+                            <input type="text" value="<%= n %>" name="name" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Email</label>
+                            <input type="text" value="<%= e %>" name="email" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Phone no.</label>
+                            <input type="number" name="phone" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">DOB</label>
+                            <input type="date" name="dob" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Address</label>
+                            <textarea name="address" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Gender</label>
+                            <input type="radio" name="gender" value="male">Male
+                            <input type="radio" name="gender" value="female">Female
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Education</label>
+                            <select name="education" class="form-control form-select">
+                                <option value="">select education</option>
+                                <option value="10">10th</option>
+                                <option value="12">12th</option>
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Course</label>
+                            <input type="text" value="bca" readonly class="form-control" name="course">
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--End BCA Modal -->
+
+    <!--MCA Modal -->
+    <div class="modal fade" id="mca" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Course Register</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/course_insert" method="post">
+                        <div class="mb-3">
+                            <label for="">Name</label>
+                            <input type="text" value="<%= n %>" name="name" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Email</label>
+                            <input type="text" value="<%= e %>" name="email" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Phone no.</label>
+                            <input type="number" name="phone" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">DOB</label>
+                            <input type="date" name="dob" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Address</label>
+                            <textarea name="address" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Gender</label>
+                            <input type="radio" name="gender" value="male">Male
+                            <input type="radio" name="gender" value="female">Female
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Education</label>
+                            <select name="education" class="form-control form-select">
+                                <option value="">select education</option>
+                                <option value="10">10th</option>
+                                <option value="12">12th</option>
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Course</label>
+                            <input type="text" value="mca" readonly class="form-control" name="course">
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--End MCA Modal -->
+
+    <%- include('./footer.ejs') %>
