@@ -5,12 +5,15 @@ const checkAuth = require("../middleware/auth");
 const CourseController = require("../controllers/CourseController");
 const ContactController = require('../controllers/ContactController');
 const AdminController = require("../controllers/admin/AdminController");
+const adminRole = require('../middleware/adminRole')
+const isLogin =require('../middleware/isLogin')
+
 
 // routes
 route.get("/home", checkAuth, FrontController.home);
 route.get("/about", checkAuth, FrontController.about);
 route.get("/contact", checkAuth, FrontController.contact);
-route.get("/", FrontController.login);
+route.get("/",isLogin, FrontController.login);
 route.get("/register", FrontController.register);
 
 // insert data
@@ -35,10 +38,10 @@ route.post('/courseUpdate/:id',checkAuth,CourseController.courseUpdate)
 
 
 //adminController
-route.get('/admin/dashboard',checkAuth,AdminController.dashboard)
-route.get('/admin/courseDisplay',checkAuth,AdminController.courseDisplay)
-route.get('/admin/contactDisplay',checkAuth,AdminController.contactDisplay)
-route.post('/admin/update_status/:id',checkAuth,AdminController.update_status)
+route.get('/admin/dashboard',checkAuth,adminRole('admin'),AdminController.dashboard)
+route.get('/admin/courseDisplay',checkAuth,adminRole('admin'),AdminController.courseDisplay)
+route.get('/admin/contactDisplay',checkAuth,adminRole('admin'),AdminController.contactDisplay)
+route.post('/admin/update_status/:id',checkAuth,adminRole('admin'),AdminController.update_status)
 
 //forget password
 route.post("/forgot_Password",FrontController.forgetPasswordVerify)
