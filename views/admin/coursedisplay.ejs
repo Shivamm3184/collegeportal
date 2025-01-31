@@ -49,7 +49,6 @@
                             <td><%= index+1 %></td>
                             <td><%= item.name %></td>
                             <td><%= item.email %></td>
-
                             <td><%= item.course %></td>
                             <td><%= item.status %></td>
                             <td>
@@ -67,11 +66,11 @@
                             </form>
                             </td>
                             <td>
-                              <a href="/admin/courseView/<%= item._id %>" class="btn btn-primary">View</a>
-                              <a href="/admin/courseEdit/<%= item._id %>" class="btn btn-info">Edit</a>
-                              <a href="/admin/courseDelete/<%= item._id %>" class="btn btn-danger">Delete</a>
+                              <a href="/courseView/<%= item._id %>" class="btn btn-primary">View</a>
+                              <a href="/courseEdit/<%= item._id %>" class="btn btn-info">Edit</a>
+                              <a href="/courseDelete/<%= item._id %>" class="btn btn-danger">Delete</a>
                             </td>
-                            
+                          
                         </tr>
                    <% }) %>
                 </tbody>
@@ -80,7 +79,6 @@
                       <th>S.No</th>
                       <th>Name</th>
                       <th>Email</th>
-
                       <th>Course</th>
                       <th>Status</th>
                       <th>Comment</th>
@@ -93,14 +91,13 @@
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
-        
-        
       </div><!-- /.container-fluid -->
     </div>
+    
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-     <%- include('./footer.ejs') %>
+<%- include('./footer.ejs') %>
 
 
     

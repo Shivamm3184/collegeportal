@@ -6,7 +6,7 @@
     <table class="table table-bordered">
         <thead>
             <tr class="bg-info text-center">
-                <td colspan="6">Course Display</td>
+                <td colspan="7">Course Display</td>
                 <% if(msg.length > 0){  %>
                     <div class="alert alert-success">  
                    <!-- to print -->
@@ -20,6 +20,8 @@
                 <td>Email</td>
                 <td>Course</td>
                 <td>Status</td>
+                <td>Comment</td>
+
                 <td>Action</td>
             </tr>
         </thead>
@@ -31,10 +33,11 @@
                     <td><%= item.email %></td>
                     <td><%= item.course %></td>
                     <td><%= item.status %></td>
+                    <td><%= item.comment %></td>
+
                     <td>
                         <a href="/viewCourse/<%=item.id%>" class="btn btn-info">View</a>
                         <a href="/editCourse/<%=item.id%>" class="btn btn-success">Edit</a>
-                        <a href="/deleteCourse/<%=item.id%>" class="btn btn-danger">Delete</a>
 
                     </td>
 
