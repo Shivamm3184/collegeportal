@@ -133,13 +133,13 @@ class FrontController {
           },
         });
         let info = await transporter.sendMail({
-          from: "test@gmail.com", // sender address
-          to: email, // list of receivers
+          from: "test1233@gmail.com", // sender address
+          to: email, // lis cgf receivers
           subject: "For Verification mail", // Subject line
           text: "heelo", // plain text body
           html: "<p>Hii " +
             name +
-            ',Please click here to <a href="http://localhost:3000/register/verify?id=' +
+            ',Please click here to <a href="https://collegeportal-amgg.onrender.com/register/verify?id=' +
             user_id +
             '">Verify</a>Your mail</p>.',
     
@@ -269,7 +269,7 @@ class FrontController {
             console.log(error);
         }
     };
-    //  changePassword
+    // changePassword
     static changePassword = async (req, res) => {
         try {
             const { id } = req.udata;
@@ -346,7 +346,7 @@ class FrontController {
             text: "heelo", // plain text body
             html: "<p>Hii " +
                 name +
-                ',Please click here to <a href="http://localhost:3000/reset-password?token=' +
+                ',Please click here to <a href="https://collegeportal-amgg.onrender.com/reset-password?token=' +
                 token +
                 '">Reset</a>Your Password.',
 
