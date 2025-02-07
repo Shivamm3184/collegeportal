@@ -172,27 +172,28 @@ class FrontController {
         try {
             // console.log(req.body)
             const { email, password } = req.body
-
             const user = await UserModel.findOne({ email });
             // console.log(user)
             if (!user) {
                 req.flash("error", "You are not register user");
                 return res.redirect("/")
             } else {
-                const isMatch = await bcrypt.compare(password, user.password)
+                const isMatch = await bcrypt.compare(password,user.password)
                 // console.log(isMatch)
                 if (isMatch) {
                     //token
-                    if (user.role == 'admin' && user.is_verify==1 ) {
+                    if (user.role == 'admin'&& user.is_verify==1 ) {
                         const token = jwt.sign({ ID: user.id }, 'fsdfsdfsfdf334');
                         // console.log(token)
                         res.cookie('token', token)
                         return res.redirect("/admin/dashboard")
-                    }else if (user.role == 'student'  && user.is_verify==1 ) {
+                    }
+                    else if (user.role == 'student'  && user.is_verify==1 ) {
                         const token = jwt.sign({ ID: user.id }, 'fsdfsdfsfdf334');
                         // console.log(token)
                         res.cookie('token', token)
                         return res.redirect("/home")
+
                     }else{
                         req.flash("error", "Please verify your Email");
                     return res.redirect("/")

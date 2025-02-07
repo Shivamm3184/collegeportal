@@ -6,8 +6,7 @@ const CourseController = require("../controllers/CourseController");
 const ContactController = require('../controllers/ContactController');
 const AdminController = require("../controllers/admin/AdminController");
 const adminRole = require('../middleware/adminRole')
-const isLogin =require('../middleware/isLogin')
-
+const isLogin = require('../middleware/isLogin')
 
 // routes
 route.get("/home", checkAuth, FrontController.home);

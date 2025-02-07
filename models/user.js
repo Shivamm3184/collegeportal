@@ -11,11 +11,10 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    status: { type: String, enum: ["approved", "pending", "rejected"], default: "pending" }, 
-    role: {
-        type: String,
-        default: "student"
+    }, 
+    role:{
+        type:String,
+        default:"student"
     },
     token:{
         type:String
