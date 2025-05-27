@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .image-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .description {
+      padding: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Our Image Gallery</h1>
+
+  <div class="gallery">
+    <div class="image-card">
+      <img src="https://via.placeholder.com/300x200" alt="Sample 1" />
+      <div class="description">A peaceful lakeside view</div>
+    </div>
+    <div class="image-card">
+      <img src="https://via.placeholder.com/300x200" alt="Sample 2" />
+      <div class="description">Sunset over the hills</div>
+    </div>
+    <div class="image-card">
+      <img src="https://via.placeholder.com/300x200" alt="Sample 3" />
+      <div class="description">Modern architecture design</div>
+    </div>
+    <div class="image-card">
+      <img src="https://via.placeholder.com/300x200" alt="Sample 4" />
+      <div class="description">Exploring urban streets</div>
+    </div>
+    <div class="image-card">
+      <img src="https://via.placeholder.com/300x200" alt="Sample 5" />
+      <div class="description">Calm forest pathway</div>
+    </div>
+  </div>
+</body>
+</html>

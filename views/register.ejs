@@ -2,122 +2,282 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Gurukul</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <title>Register</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="css/style.css">
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #1f1b38;
+        }
 
-    <!-- Bootstrap Link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        nav {
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent;
+            color: white;
+            position: absolute;
+            width: 100%;
+            z-index: 3;
+        }
 
+        nav .logo {
+            font-weight: bold;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav .logo img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        nav .nav-links a {
+            margin-left: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .main {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(to bottom right, #301c83, #1f1b38);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+        }
+
+        .art-layer {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            /* background: hsla(0, 88%, 32%, 0.008); */
+            filter: blur(1px);
+            background:linear-gradient( rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center;
+            background-size: cover;
+
+        }
+
+        .content {
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            border-radius: 15px;
+            /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9); */
+
+        }
+
+        .headline {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            max-width: 400px;
+            /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9); */
+
+
+        }
+
+        /* .hg {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+            background: round;
+
+        } */
+
+        .headline span {
+            color: #b19cd9;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            width: 350px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+        }
+
+        .small-link {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .small-link a {
+            text-decoration: none;
+            color: #5e2ced;
+        }
+
+        .small-link a:hover {
+            text-decoration: underline;
+        }
+
+        /*  */
+
+        /* .bg-illustration {
+      background: linear-gradient(135deg, #4f46e5, #6d28d9);
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    } */
+
+        input.form-control {
+            border-radius: 12px;
+            /* padding: 12px; */
+        }
+
+        .btn-primary {
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            background: linear-gradient(135deg, #5e2ced, #8631f1);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+
+        .alert {
+            border-radius: 10px;
+
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Register Here -->
-    <section id="login" class="my-5">
-        <div class="container">
-            <div class="row">
-                <!-- Column-1 -->
-                <div class="col-lg-6">
-                    <img class="w-100" src="./Images/CollegeStudentsImage-2.jpeg" alt="College Students Image-2"
-                        height="100%">
-                </div>
-                <!-- End Column-1 -->
+    <!-- Navbar -->
+    <nav>
+        <!-- <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Logo" />
+      COMPANY
+    </div> -->
+        <!-- <div class="nav-links">
+      <a href="#">How it works</a>
+      <a href="#">Service</a>
+      <a href="#">Blog</a>
+      <a href="#">About</a>
+      <a href="#" class="btn btn-sm btn-outline-light">Contact Us</a>
+    </div> -->
+    </nav>
 
-                <!-- Column-2 -->
-                <div class="col-lg-6 bglogin p-4">
-                    <form action="/userinsert" method="post" enctype="multipart/form-data">
-                        <!-- logo  -->
-                        <center>
-                            <img class="mb-4 rounded-circle" src="./Images/SignUpImage.jpeg" alt="Sign Up Image"
-                                width="20%" height="20%">
-                        </center>
+    <!-- Main Content -->
+    <div class="main">
+        <div class="art-layer"></div>
+        <div class="content">
+            <!-- Headline Section -->
+            <div class="headline">
+                <center><img src="/Images/prov.png" class="hg" alt="Logo" width="200" class="rounded-circle" />
+                </center>
+                <center><span>REG</span>ISTER</center>
+                <!-- https://cdn-icons-png.flaticon.com/512/888/888879.png -->
 
-                        <!-- Heading (Register Here) -->
-                        <h1 class="mb-5 text-center">Register Here</h1>
-                        <% if(msg.length> 0){ %>
-                            <div class="alert alert-danger">
-                                <!-- to print -->
-                                <%= msg %>
+            </div>
+
+            <!-- Login Card -->
+            <div class="login-card">
+                <!-- <h2 class="fw-bold text-center">Register</h2> -->
+                <form action="/userinsert" method="post" enctype="multipart/form-data">
+                    <div class=" mb-1    ">
+                        <!-- <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Logo" width="60" class="rounded-circle mb-2" /> -->
+
+                    </div>
+
+                    <% if (msg.length> 0) { %>
+                        <div class="alert alert-danger text-center">
+                            <%= msg %>
+                        </div>
+                        <% } %>
+
+                            <!-- Name -->
+                            <div class="mb-2">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" name="name" class="form-control text-capitalize"
+                                    placeholder="Enter your name" required />
                             </div>
-                            <% } %>
 
-                                <!-- User Name -->
-                                <div class="row mb-4">
-                                    <div
-                                        class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
-                                        User
-                                        Name</div>
-                                    <div class="col-lg-10">
-                                        <input class="form-control text-capitalize" type="text"
-                                            placeholder="Enter your name" name="name">
-                                    </div>
-                                </div>
+                            <!-- Email -->
+                            <div class="mb-2">
+                                <label class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control" placeholder="name@example.com"
+                                    required />
+                            </div>
 
-                                <!-- Email -->
-                                <div class="row mb-3">
-                                    <div
-                                        class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
-                                        Email
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <input class="form-control" type="email" placeholder="name@example.com"
-                                            name="email">
-                                    </div>
-                                </div>
+                            <!-- Password -->
+                            <div class="mb-2">
+                                <label class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control" required />
+                            </div>
 
-                                <!-- Password -->
-                                <div class="row mb-4">
-                                    <div
-                                        class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
-                                        Password</div>
-                                    <div class="col-lg-10">
-                                        <input class="form-control" type="password" name="password">
-                                    </div>
-                                </div>
+                            <!-- Confirm Password -->
+                            <div class="mb-2">
+                                <label class="form-label">Confirm Password</label>
+                                <input type="password" name="confirmpassword" class="form-control" required />
+                            </div>
 
-                                <!-- Confirm Password -->
-                                <div class="row mb-4">
-                                    <div
-                                        class="col-lg-3 text-center bg-secondary rounded text-light fw-light my-auto p-2">
-                                        Confirm Password</div>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="password" name="confirmpassword">
-                                    </div>
-                                </div>
+                            <!-- Image Upload -->
+                            <div class="mb-4">
+                                <label class="form-label">Upload Image</label>
+                                <input type="file" name="image" class="form-control" />
+                            </div>
 
-                                <!-- image -->
-                                <div class="row mb-4">
-                                    <div
-                                        class="col-lg-3 text-center bg-secondary rounded text-light fw-light my-auto p-2">
-                                        image </div>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="file" name="image">
-                                    </div>
-                                </div>
+                            <!-- Register Button -->
+                            <div class="d-grid mb-3">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
 
-                                <!-- Button (Login) -->
-                                <center>
-                                    <button type="submit" class="btn btn-primary mb-5 btn-lg">Register</button>
-                                </center>
-
-                    </form>
-                </div>
-                <!-- End Column-2 -->
+                            <!-- Login Redirect -->
+                            <p class="text-center small-link">
+                                Already have an account? <a href="/">Login</a>
+                            </p>
+                </form>
             </div>
         </div>
-    </section>
-    <!-- End Register Here -->
+    </div>
 
-    <!-- Java Script Link -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="Forgot" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-3">
+                <div class="modal-header">
+                    <h5 class="modal-title">Forgot Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form action="/forgot_Password" method="POST">
+                    <div class="modal-body">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control mb-3" required />
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

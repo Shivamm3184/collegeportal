@@ -21,9 +21,13 @@ class FrontController {
             const { name, image, email, id } = req.udata
             const btech = await CourseModel.findOne({ user_id: id, course: "btech" })
             const bca = await CourseModel.findOne({ user_id: id, course: "bca" })
-            const mca = await CourseModel.findOne({ user_id: id, course: "mca" })
+            const bba = await CourseModel.findOne({ user_id: id, course: "bba" })
+            const llb = await CourseModel.findOne({ user_id: id, course: "llb" })
+            const bjmc = await CourseModel.findOne({ user_id: id, course: "bjmc" })
+            const mba = await CourseModel.findOne({ user_id: id, course: "mba" })
+
             // console.log(bca)
-            res.render("home", { n: name, i: image, e: email, bca: bca, btech: btech, mca: mca, msg:req.flash("error") })
+            res.render("home", { n: name, i: image, e: email, bca: bca, btech: btech, bba: bba,llb: llb ,bjmc: bjmc, mba: mba, msg: req.flash("error") })
         } catch (error) {
             console.log(error)
         }
@@ -32,6 +36,14 @@ class FrontController {
         try {
             const { name, image } = req.udata
             res.render("about", { n: name, i: image })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+     static Campus = async (req, res) => {
+        try {
+            const { name, image } = req.udata
+            res.render("Campus", { n: name, i: image })
         } catch (error) {
             console.log(error)
         }
@@ -122,27 +134,27 @@ class FrontController {
     static sendVerifymail = async (name, email, user_id) => {
         //console.log(name, email, user_id);
         // connenct with the smtp server
-    
+
         let transporter = await nodemailer.createTransport({
-          host: "smtp.gmail.com",
-          port: 587,
-    
-          auth: {
-            user: "shivammishrakiddys@gmail.com",
-            pass: "olfx swfh chmc ngwz",
-          },
+            host: "smtp.gmail.com",
+            port: 587,
+
+            auth: {
+                user: "shivammishrakiddys@gmail.com",
+                pass: "olfx swfh chmc ngwz",
+            },
         });
         let info = await transporter.sendMail({
-          from: "test1233@gmail.com", // sender address
-          to: email, // lis cgf receivers
-          subject: "For Verification mail", // Subject line
-          text: "heelo", // plain text body
-          html: "<p>Hii " +
-            name +
-            ',Please click here to <a href="https://collegeportal-amgg.onrender.com/register/verify?id=' +
-            user_id +
-            '">Verify</a>Your mail</p>.',
-    
+            from: "test1233@gmail.com", // sender address
+            to: email, // lis cgf receivers
+            subject: "For Verification mail", // Subject line
+            text: "heelo", // plain text body
+            html: "<p>Hii " +
+                name +
+                ',Please click here to <a href="https://collegeportal-amgg.onrender.com/register/verify?id=' +
+                user_id +
+                '">Verify</a>Your mail</p>.',
+
         });
         //console.log(info);
     };
@@ -165,8 +177,8 @@ class FrontController {
             }
         } catch (error) {
             console.log(error);
-        }
-    };
+        }
+    };
     // verify login
     static verifyLogin = async (req, res) => {
         try {
@@ -178,26 +190,26 @@ class FrontController {
                 req.flash("error", "You are not register user");
                 return res.redirect("/")
             } else {
-                const isMatch = await bcrypt.compare(password,user.password)
+                const isMatch = await bcrypt.compare(password, user.password)
                 // console.log(isMatch)
                 if (isMatch) {
                     //token
-                    if (user.role == 'admin'&& user.is_verify==1 ) {
+                    if (user.role == 'admin' && user.is_verify == 1) {
                         const token = jwt.sign({ ID: user.id }, 'fsdfsdfsfdf334');
                         // console.log(token)
                         res.cookie('token', token)
                         return res.redirect("/admin/dashboard")
                     }
-                    else if (user.role == 'student'  && user.is_verify==1 ) {
+                    else if (user.role == 'student' && user.is_verify == 1) {
                         const token = jwt.sign({ ID: user.id }, 'fsdfsdfsfdf334');
                         // console.log(token)
                         res.cookie('token', token)
                         return res.redirect("/home")
 
-                    }else{
+                    } else {
                         req.flash("error", "Please verify your Email");
-                    return res.redirect("/")
-                        
+                        return res.redirect("/")
+
                     }
 
                 } else {

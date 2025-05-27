@@ -12,6 +12,7 @@ const isLogin = require('../middleware/isLogin')
 route.get("/home", checkAuth, FrontController.home);
 route.get("/about", checkAuth, FrontController.about);
 route.get("/contact", checkAuth, FrontController.contact);
+route.get("/Campus", checkAuth, FrontController.Campus);
 route.get("/",isLogin, FrontController.login);
 route.get("/register", FrontController.register);
 

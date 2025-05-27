@@ -50,5 +50,6 @@ app.use(flash());
 app.use('/', web)
 // server create
 app.listen(port, () => {
-  console.log(`server start localhost: ${port}`)
+  // console.log(`server start localhost: ${port}`)
+  console.log(`login with: http://localhost:3000/`)
 })

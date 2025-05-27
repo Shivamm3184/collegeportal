@@ -1,7 +1,11 @@
 <%- include('../header.ejs') %>
 
+<br>
+<br>
+<br>    
+<center><h1>Course Details</h1>
+<hr style="width: 50%;"></center>
 
-<h1>Course Details</h1>
 <div class="container mt-5">
     <table class="table table-bordered">
         <thead>
@@ -16,7 +20,7 @@
             </tr>
             <tr>
                 <td>Id</td>
-                <td>Nmae</td>
+                <td>Name</td>
                 <td>Email</td>
                 <td>Course</td>
                 <td>Status</td>
@@ -36,7 +40,7 @@
                     <td><%= item.comment %></td>
 
                     <td>
-                        <a href="/viewCourse/<%=item.id%>" class="btn btn-info">View</a>
+                        <a href="/viewCourse/<%=item.id%>" class="btn btn-primary">View</a>
                         <a href="/editCourse/<%=item.id%>" class="btn btn-success">Edit</a>
 
                     </td>

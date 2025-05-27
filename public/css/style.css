@@ -3,18 +3,30 @@
 ------------------------------------------------------------------ */
 
 body{
-    background: #f4f6f9 !important;
+ background: linear-gradient(135deg, #0d6efd, white )!important;
 }
+
+
 
 
 
 /* ---------------------------------------------------------------
                             #navbar
 ------------------------------------------------------------------ */
-
-#navbar nav{
-    background: #0000009c !important;
+.main-content {
+  margin-top: 100px; /* Adjust to your navbar height */
 }
+#navbar nav{
+    background: rgba(0, 0, 0, 0.5) !important;
+    /* font-family: 'Times New Roman', Times, serif; */
+    text-transform: uppercase;
+    font-family: 'GT America Condensed Medium';
+}
+#navbar {
+  transition: top 0.9s ease-in-out;
+  z-index: 9999; /* Make sure it's above image */
+}
+
 
 .webViewPosition{
     text-align: start !important;
@@ -36,6 +48,12 @@ body{
     background: #f4f6f9;
     /* #bdddf7 */
 }
+.container span {
+      /* color: #b19cd9; */
+      text-transform: uppercase;
+      font-weight: bold;
+      color: white;
+    }
 
 /* ---------------------------------------------------------------
                             #footer
@@ -43,11 +61,16 @@ body{
 
 #footer
 {
-    background: #2a1a6f;
+      background: linear-gradient( rgba(7, 51, 117, 0.674));
+    margin-top: 100px;
+
 }
+
 
 #social{
     background: white;
+          background: linear-gradient( rgba(7, 51, 117, 0.674));
+ color: white;
 }
 
 #detail p{
@@ -68,6 +91,90 @@ body{
     padding: 0 !important;
 }
 
+.profile{
+    width: 100%;
+    height: 100vh;
+    margin: 1px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+
+/* // providence */
+
+.inner, body .admin-message-header-holder .admin-message-content {
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1500px;
+    position: relative;
+    width: 94%;
+}
+#home_page_seek_truth_block {
+    background-size: cover;
+    background-position: top center;
+    text-align: center;
+    width: 100%;
+    display: flex
+;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0px;
+    padding-top: 315px;
+}
+#home_page_seek_truth_block {
+    background-image: url(https://www.providence.edu/wp-content/uploads/sites/131/2022/08/steeple-cropped.jpg);
+}
+#home_page_seek_truth_block > div > img {
+    margin: 0 auto 80px;
+    width: 100%;
+}
+.home_page_seek_truth_block_button a {
+    border: none;
+    background: #000;
+    color: #fff;
+    display: inline-block;
+    font-family: 'GT America Bold';
+    font-size: 16px;
+    line-height: 1;
+    margin: 0 10px 30px;
+    padding: 10px 25px 12px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: auto;
+}
+.home_page_seek_truth_block_button a img {
+    width: 1.1em;
+    filter: invert(1);
+    transform: rotate(45deg);
+    position: relative;
+    top: -1px;
+    right: -5px;
+    transition: all .25s ease;
+    width: 15px;
+}
+body.page-template-tmpl-rebrand-home .home_page_seek_truth_block_text p {
+    width: 100%;
+    background: rgba(255, 255, 255, .80);
+    padding: 40px;
+    font-family: 'GT America Condensed Medium' !important;
+    margin: 50px auto;
+    font-size: 1.6em;
+}
+.home_page_seek_truth_block_text p {
+    width: 100%;
+    background: rgba(255, 255, 255, .80);
+    padding: 40px;
+    font-family: 'GT America Condensed Medium' !important;
+    /* margin-top: 80px; */
+    margin: 70px auto;
+    font-size: 1.6em;
+}
 /* ---------------------------------------------------------------
                             Media Query
 ------------------------------------------------------------------ */
