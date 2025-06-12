@@ -93,7 +93,7 @@ class AdminController {
         try {
             const { name, email, image } = req.udata
             const contact = await ContactModel.find()
-            res.render('admin/contactDisplay', { n: name, i: image, e: email, c: contact })
+            res.render('admin/contactdisplay', { n: name, i: image, e: email, c: contact })
         } catch (error) {
             console.log(error)
         }
