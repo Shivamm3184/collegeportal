@@ -55,6 +55,24 @@ body{
       color: white;
     }
 
+    .sellector{
+        overflow: hidden;
+    }
+
+
+    .img1122{
+        filter: grayscale(100%);
+        transition: all .85s ease;
+        width: 100%;
+
+    }
+    .img1122:hover{
+        filter: grayscale(0%);
+        transform: scale(1.05);
+        transition-timing-function: cubic-bezier(.4, 0, .2,1)
+       
+    }
+
 /* ---------------------------------------------------------------
                             #footer
 ------------------------------------------------------------------ */
