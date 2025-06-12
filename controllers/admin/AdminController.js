@@ -28,7 +28,7 @@ class AdminController {
         try {
             const { name, email, image } = req.udata
             const course = await CourseModel.find()
-            res.render('admin/courseDisplay', { n: name, i: image, e: email, c: course })
+            res.render('admin/coursedisplay', { n: name, i: image, e: email, c: course })
         } catch (error) {
             console.log(error)
         }
@@ -73,7 +73,7 @@ class AdminController {
                 course
             });
             req.flash("success","Course Update Successfully")
-            res.redirect("/admin/courseDisplay")
+            res.redirect("/admin/coursedisplay")
         } catch (error) {
             console.log(error);
         }
