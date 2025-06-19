@@ -62,7 +62,7 @@ body{
 
     .img1122{
         filter: grayscale(100%);
-        transition: all .85s ease;
+        transition: all .40s ease;
         width: 100%;
 
     }
